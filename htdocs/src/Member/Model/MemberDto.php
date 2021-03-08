@@ -1,62 +1,107 @@
 <?php
 
+namespace App\Member\Model;
 
 class MemberDto
 {
 
-    private string $email;
+    private string $email = '';
 
-    private string $password;
+    private string $password = '';
 
-    private string $firstname;
+    private string $firstname = '';
 
-    private string $lastname;
+    private string $passwordConfirmation = '';
 
-    public function __construct(string $email, string $password, string $firstname, string $lastname)
-    {
-        $this->email = $email;
-        $this->password = $password;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-    }
+    private string $lastname = '';
 
+    /**
+     * @return string
+     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): void
+    /**
+     * @param string $email
+     * @return MemberDto
+     */
+    public function setEmail(string $email): MemberDto
     {
         $this->email = $email;
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): void
+    /**
+     * @param string $password
+     * @return MemberDto
+     */
+    public function setPassword(string $password): MemberDto
     {
         $this->password = $password;
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstname(): string
     {
         return $this->firstname;
     }
 
-    public function setFirstname(string $firstname): void
+    /**
+     * @param string $firstname
+     * @return MemberDto
+     */
+    public function setFirstname(string $firstname): MemberDto
     {
         $this->firstname = $firstname;
+        return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getPasswordConfirmation(): string
+    {
+        return $this->passwordConfirmation;
+    }
+
+    /**
+     * @param string $passwordConfirmation
+     * @return MemberDto
+     */
+    public function setPasswordConfirmation(string $passwordConfirmation): MemberDto
+    {
+        $this->passwordConfirmation = $passwordConfirmation;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getLastname(): string
     {
         return $this->lastname;
     }
 
-    public function setLastname(string $lastname): void
+    /**
+     * @param string $lastname
+     * @return MemberDto
+     */
+    public function setLastname(string $lastname): MemberDto
     {
         $this->lastname = $lastname;
+        return $this;
     }
 }
