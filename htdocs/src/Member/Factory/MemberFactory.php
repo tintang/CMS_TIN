@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Member\Factory;
 
 use App\Member\Entity\Member;
+use App\Member\Model\MemberDto;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class MemberFactory implements MemberFactoryInterface

@@ -1,0 +1,11 @@
+App\Member\Model\MemberDto:
+  properties:
+    firstname:
+      - NotBlank: ~
+    lastname:
+      - NotBlank: ~
+    email:
+      - NotBlank: ~
+      - Email: ~
+    password:
+      - NotBlank: ~
