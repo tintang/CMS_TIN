@@ -51,4 +51,12 @@ class Roles
         $this->roleName = $roleName;
         return $this;
     }
+
+    public static function getUserRoles()
+    {
+        return [
+            self::ROLE_ADMIN,
+            self::ROLE_SUPER_ADMIN,
+        ];
+    }
 }
