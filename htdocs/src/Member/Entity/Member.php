@@ -54,7 +54,7 @@ class Member implements UserInterface
      */
     private array $roles = [];
 
-    public function getRoles()
+    public function getRoles(): array
     {
         return array_merge($this->roles, [
             'ROLE_MEMBER'
