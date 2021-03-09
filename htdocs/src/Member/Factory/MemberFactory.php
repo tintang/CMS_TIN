@@ -27,9 +27,7 @@ class MemberFactory implements MemberFactoryInterface
             ->setPassword($this->passwordEncoder->encodePassword($member, $memberDto->getPassword()))
             ->setFirstname($memberDto->getFirstname())
             ->setLastname($memberDto->getLastname());
-
-        $this->entityManager->persist($member);
-        $this->entityManager->flush();
+        
         return $member;
     }
 }
