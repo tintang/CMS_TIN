@@ -2,6 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/htdocs/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/polyfill-intl-grapheme" />
@@ -116,6 +117,52 @@
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/lcobucci/clock" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/lexik/jwt-authentication-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/namshi/jose" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/justinrainbow/json-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phpunit/php-token-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phpunit/php-invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/php-webdriver/webdriver" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/codeception" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/stub" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/module-symfony" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/module-doctrine2" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/lib-asserts" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/module-webdriver" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/module-asserts" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/lib-innerbrowser" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/module-rest" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/phpunit-wrapper" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/phpspec/prophecy" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/softcreatr/jsonpath" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/code-unit" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/resource-operations" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/type" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/behat/gherkin" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/codeception/module-phpbrowser" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/psr/http-client" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
