@@ -11,8 +11,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class CreateUserCommand extends Command
@@ -78,9 +76,7 @@ class CreateUserCommand extends Command
                 }
                 return Command::FAILURE;
             }
-            $member = $this->factory->createMember($memberDto);
-            $this->entityManager->persist($member);
-            $this->entityManager->flush();
+            $this->factory->createMember($memberDto);
             $output->writeln('Member successfully created');
         } catch (ExceptionInterface $e) {
             $output->writeln('Error in input. Please try again');
@@ -89,5 +85,4 @@ class CreateUserCommand extends Command
 
         return Command::SUCCESS;
     }
-
 }
