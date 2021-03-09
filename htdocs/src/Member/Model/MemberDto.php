@@ -15,6 +15,8 @@ class MemberDto
 
     private string $lastname = '';
 
+    private array $userRoles = [];
+
     /**
      * @return string
      */
@@ -102,6 +104,17 @@ class MemberDto
     public function setLastname(string $lastname): MemberDto
     {
         $this->lastname = $lastname;
+        return $this;
+    }
+
+    public function getUserRoles(): array
+    {
+        return $this->userRoles;
+    }
+
+    public function setUserRoles(array $userRoles): MemberDto
+    {
+        $this->userRoles = $userRoles;
         return $this;
     }
 }
