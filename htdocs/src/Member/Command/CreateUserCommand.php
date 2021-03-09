@@ -76,9 +76,7 @@ class CreateUserCommand extends Command
                 }
                 return Command::FAILURE;
             }
-            $member = $this->factory->createMember($memberDto);
-            $this->entityManager->persist($member);
-            $this->entityManager->flush();
+            $this->factory->createMember($memberDto);
             $output->writeln('Member successfully created');
         } catch (ExceptionInterface $e) {
             $output->writeln('Error in input. Please try again');
