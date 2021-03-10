@@ -18,18 +18,7 @@ class LoginCest
     // tests
     public function tryToTestLogin(ApiTester $I)
     {
-        $em = $I->grabService(EntityManagerInterface::class);
-        /** @var UserPasswordEncoderInterface $passwordEncoder */
-        $passwordEncoder = $I->grabService(UserPasswordEncoderInterface::class);
-        $newUser = new Member();
-        $newUser
-            ->setFirstname('tin')
-            ->setLastname('tang')
-            ->setEmail('test@test.de')
-            ->setPassword($passwordEncoder->encodePassword($newUser, 'test'));
-
-        $em->persist($newUser);
-        $em->flush();
+        $newUser = $I->getNewUser('test@test.de', 'test', 'test', 'test');
         $I->haveHttpHeader('Content-Type', 'application/json');
         $I->sendPost('/api/login_check', [
             'username' => 'test@test.de',

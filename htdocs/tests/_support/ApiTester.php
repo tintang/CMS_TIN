@@ -1,5 +1,10 @@
 <?php
+
 namespace App\Tests;
+
+use App\Member\Entity\Member;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Inherited Methods
@@ -15,12 +20,51 @@ namespace App\Tests;
  * @method void pause()
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class ApiTester extends \Codeception\Actor
 {
     use _generated\ApiTesterActions;
 
     /**
-     * Define custom actions here
+     * @param string $email
+     * @param string $firstname
+     * @param string $lastname
+     * @param string $password
      */
+    public function getNewUser(string $email, string $firstname, string $lastname, string $password)
+    {
+        /** @var EntityManagerInterface $em */
+        $em = $this->grabService(EntityManagerInterface::class);
+        /** @var UserPasswordEncoderInterface $passwordEncoder */
+        $passwordEncoder = $this->grabService(UserPasswordEncoderInterface::class);
+        $memberRepository = $em->getRepository(Member::class);
+
+        if ($user = $memberRepository->findOneBy(['email' => $email])) {
+            $em->remove($user);
+            $em->flush();
+        }
+
+        $newUser = new Member();
+        $newUser
+            ->setFirstname($firstname)
+            ->setLastname($lastname)
+            ->setEmail($email)
+            ->setPassword($passwordEncoder->encodePassword($newUser, $password));
+
+        $em->persist($newUser);
+        $em->flush();
+        return $newUser;
+    }
+
+    public function getToken(string $email, string $password)
+    {
+        $this->haveHttpHeader('Content-Type', 'application/json');
+        $this->sendPost('/api/login_check', [
+            'username' => $email,
+            'password' => $password
+        ]);
+
+        list($token) = $this->grabDataFromResponseByJsonPath('$.token');
+        return $token;
+    }
 }
