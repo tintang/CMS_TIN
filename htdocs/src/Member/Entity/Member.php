@@ -2,6 +2,8 @@
 
 namespace App\Member\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -52,13 +54,19 @@ class Member implements UserInterface
      *     inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")}
      * )
      */
-    private array $roles = [];
+    private Collection $roles;
+
+    /**
+     * Member constructor.
+     */
+    public function __construct()
+    {
+        $this->roles = new ArrayCollection();
+    }
 
     public function getRoles()
     {
-        return array_merge($this->roles, [
-            'ROLE_MEMBER'
-        ]);
+        return $this->roles->toArray();
     }
 
     public function getPassword()
@@ -127,7 +135,7 @@ class Member implements UserInterface
 
     public function setRoles(array $roles): Member
     {
-        $this->roles = $roles;
+        $this->roles = new ArrayCollection($roles);
         return $this;
     }
 }

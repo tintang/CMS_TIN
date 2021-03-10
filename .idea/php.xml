@@ -162,6 +162,7 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/htdocs/vendor/codeception/module-phpbrowser" />
       <path value="$PROJECT_DIR$/htdocs/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/apache-pack" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
