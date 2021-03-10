@@ -1,6 +1,6 @@
 version: "3"
 services:
-  www.blog.priv:
+  www.cms.priv:
     image: "httpd:2.4"
     ports:
       - "80:80"
@@ -41,12 +41,12 @@ services:
     #image: selenium/standalone-firefox-debug:3
     #image: selenium/node-phantomjs:3
     environment:
-      - VIRTUAL_HOST=www.blog.priv
+      - VIRTUAL_HOST=www.cms.priv
       - HTTP_EXPOSE=4444
     networks:
       - default
     depends_on:
-      - www.blog.priv
+      - www.cms.priv
   encore:
     image: node:10-alpine
     volumes:
