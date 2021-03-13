@@ -16,3 +16,9 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Member/Entity'
                 prefix: 'App\Member\Entity'
                 alias: App
+            Core:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Core/Entity'
+                prefix: 'App\Core\Entity'
+                alias: App
