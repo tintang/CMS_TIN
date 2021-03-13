@@ -6,5 +6,6 @@ resources:
       output: App\Core\Dto\ArticleOutputDto
     collectionOperations:
       post: ~
+      get: ~
     itemOperations:
       get: ~

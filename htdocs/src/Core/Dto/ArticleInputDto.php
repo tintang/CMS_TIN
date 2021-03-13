@@ -5,7 +5,7 @@ namespace App\Core\Dto;
 class ArticleInputDto
 {
 
-    private ?string $language = null;
+    private ?string $locale = null;
 
     protected ?string $name = null;
 
@@ -13,21 +13,21 @@ class ArticleInputDto
 
     protected ?float $price = null;
 
-    public function __construct(?string $language, ?string $name, ?float $price)
+    public function __construct(?string $locale, ?string $name, ?float $price)
     {
-        $this->language = $language;
+        $this->locale = $locale;
         $this->name = $name;
         $this->price = $price;
     }
 
-    public function getLanguage(): ?string
+    public function getLocale(): ?string
     {
-        return $this->language;
+        return $this->locale;
     }
 
-    public function setLanguage(?string $language): ArticleInputDto
+    public function setLocale(?string $locale): ArticleInputDto
     {
-        $this->language = $language;
+        $this->locale = $locale;
         return $this;
     }
 
