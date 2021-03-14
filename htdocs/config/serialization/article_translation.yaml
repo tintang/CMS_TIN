@@ -1,0 +1,6 @@
+App\Core\Entity\ArticleTranslation:
+  attributes:
+    translatable:
+      ignore: true
+    id:
+      ignore: false

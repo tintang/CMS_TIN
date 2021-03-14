@@ -1,0 +1,6 @@
+App\Core\Dto\ArticleInputDto:
+  properties:
+    locale:
+      - Locale: ~
+    name:
+      - NotBlank: ~

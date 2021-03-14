@@ -26,7 +26,6 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/reflection" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/sql-formatter" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/persistence" />
@@ -34,12 +33,9 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/common" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/doctrine-migrations-bundle" />
-      <path value="$PROJECT_DIR$/htdocs/vendor/ocramius/package-versions" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/migrations" />
-      <path value="$PROJECT_DIR$/htdocs/vendor/webimpress/safe-writer" />
       <path value="$PROJECT_DIR$/htdocs/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/htdocs/vendor/ocramius/proxy-manager" />
       <path value="$PROJECT_DIR$/htdocs/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/htdocs/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/htdocs/vendor/phpdocumentor/reflection-docblock" />
@@ -80,7 +76,6 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/mime" />
-      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/orm-pack" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/options-resolver" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/event-dispatcher" />
@@ -100,12 +95,10 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/error-handler" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/profiler-pack" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/serializer" />
-      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/inflector" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/debug-bundle" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/monolog-bundle" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/cache-contracts" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/http-client-contracts" />
-      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/serializer-pack" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/monolog-bridge" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/security-csrf" />
@@ -121,7 +114,6 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/htdocs/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/htdocs/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/htdocs/vendor/phpunit/php-token-stream" />
       <path value="$PROJECT_DIR$/htdocs/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/htdocs/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/htdocs/vendor/phpunit/php-code-coverage" />
@@ -163,6 +155,20 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/codeception/module-phpbrowser" />
       <path value="$PROJECT_DIR$/htdocs/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/proxy-manager-bridge" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/api-platform/core" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/knplabs/doctrine-behaviors" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/nette/utils" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
