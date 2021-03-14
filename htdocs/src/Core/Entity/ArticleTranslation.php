@@ -31,11 +31,6 @@ class ArticleTranslation implements TranslationInterface
     protected $name;
 
     /**
-     * @ORM\Column(type="decimal", precision=2)
-     */
-    protected $price;
-
-    /**
      * @ORM\Column(type="string")
      */
     protected $description;
@@ -63,24 +58,6 @@ class ArticleTranslation implements TranslationInterface
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param mixed $price
-     * @return ArticleTranslation
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
         return $this;
     }
 
