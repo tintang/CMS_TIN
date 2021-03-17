@@ -21,6 +21,10 @@ class Order
 
     public const STATE_CANCELED = 'canceled';
 
+    public const STATE_DELIVERED = 'delivered';
+
+    public const STATE_SENT = 'sent';
+
     /**
      * @var int|null
      * @ORM\Id()
