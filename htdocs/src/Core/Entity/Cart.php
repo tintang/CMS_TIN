@@ -2,7 +2,7 @@
 
 namespace App\Core\Entity;
 
-use App\Member\Entity\Member;
+use App\User\Entity\User;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,10 +23,10 @@ class Cart
     private ?int $id;
 
     /**
-     * @var Member
-     * @ORM\ManyToOne(targetEntity="App\Member\Entity\Member")
+     * @var User
+     * @ORM\ManyToOne(targetEntity="App\User\Entity\User")
      */
-    private Member $customer;
+    private User $customer;
 
     /**
      * @ORM\Column(type="datetime_immutable")

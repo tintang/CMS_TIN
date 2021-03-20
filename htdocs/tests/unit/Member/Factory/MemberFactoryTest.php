@@ -4,9 +4,9 @@
 namespace unit\Member\Factory;
 
 
-use App\Member\Entity\Member;
-use App\Member\Factory\MemberFactory;
-use App\Member\Model\MemberDto;
+use App\User\Entity\User;
+use App\User\Factory\MemberFactory;
+use App\User\Model\MemberDto;
 use Codeception\PHPUnit\TestCase;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;

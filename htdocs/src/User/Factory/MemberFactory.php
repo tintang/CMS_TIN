@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Member\Factory;
+namespace App\User\Factory;
 
-use App\Member\Entity\Member;
-use App\Member\Model\MemberDto;
+use App\User\Entity\User;
+use App\User\Model\MemberDto;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -19,9 +19,9 @@ class MemberFactory implements MemberFactoryInterface
         $this->entityManager = $entityManager;
     }
 
-    public function createMember(MemberDto $memberDto): Member
+    public function createMember(MemberDto $memberDto): User
     {
-        $member = new Member();
+        $member = new User();
         $member
             ->setEmail($memberDto->getEmail())
             ->setPassword($this->passwordEncoder->encodePassword($member, $memberDto->getPassword()))

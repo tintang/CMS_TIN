@@ -2,7 +2,7 @@
 
 namespace App\Tests;
 
-use App\Member\Entity\Member;
+use App\User\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -37,14 +37,14 @@ class ApiTester extends \Codeception\Actor
         $em = $this->grabService(EntityManagerInterface::class);
         /** @var UserPasswordEncoderInterface $passwordEncoder */
         $passwordEncoder = $this->grabService(UserPasswordEncoderInterface::class);
-        $memberRepository = $em->getRepository(Member::class);
+        $memberRepository = $em->getRepository(User::class);
 
         if ($user = $memberRepository->findOneBy(['email' => $email])) {
             $em->remove($user);
             $em->flush();
         }
 
-        $newUser = new Member();
+        $newUser = new User();
         $newUser
             ->setFirstname($firstname)
             ->setLastname($lastname)

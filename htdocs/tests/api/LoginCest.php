@@ -2,9 +2,9 @@
 
 namespace App\Tests;
 
-use App\Member\Entity\Member;
-use App\Member\Factory\MemberFactory;
-use App\Member\Model\MemberDto;
+use App\User\Entity\User;
+use App\User\Factory\MemberFactory;
+use App\User\Model\MemberDto;
 use App\Tests\ApiTester;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;

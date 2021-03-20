@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Member\Entity;
+namespace App\User\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * Class Member
  * @ORM\Entity()
  */
-class Member implements UserInterface
+class User implements UserInterface
 {
 
     /**
@@ -48,7 +48,7 @@ class Member implements UserInterface
 
     /**
      * @var array
-     * @ORM\ManyToMany(targetEntity="App\Member\Entity\Roles")
+     * @ORM\ManyToMany(targetEntity="App\User\Entity\Roles")
      * @ORM\JoinTable(name="user_roles",
      *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")}
@@ -109,31 +109,31 @@ class Member implements UserInterface
         return $this->lastname;
     }
 
-    public function setEmail(string $email): Member
+    public function setEmail(string $email): User
     {
         $this->email = $email;
         return $this;
     }
 
-    public function setPassword(string $password): Member
+    public function setPassword(string $password): User
     {
         $this->password = $password;
         return $this;
     }
 
-    public function setFirstname(string $firstname): Member
+    public function setFirstname(string $firstname): User
     {
         $this->firstname = $firstname;
         return $this;
     }
 
-    public function setLastname(string $lastname): Member
+    public function setLastname(string $lastname): User
     {
         $this->lastname = $lastname;
         return $this;
     }
 
-    public function setRoles(array $roles): Member
+    public function setRoles(array $roles): User
     {
         $this->roles = new ArrayCollection($roles);
         return $this;

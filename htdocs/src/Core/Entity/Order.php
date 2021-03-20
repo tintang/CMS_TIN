@@ -2,7 +2,7 @@
 
 namespace App\Core\Entity;
 
-use App\Member\Entity\Member;
+use App\User\Entity\User;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -34,9 +34,9 @@ class Order
     private ?int $id = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Member\Entity\Member")
+     * @ORM\ManyToOne(targetEntity="App\User\Entity\User")
      */
-    private Member $member;
+    private User $user;
 
     /**
      * @ORM\Column(type="datetime_immutable")
@@ -52,9 +52,9 @@ class Order
     private ArrayCollection $orderPositions;
 
 
-    public function __construct(Member $member, ArrayCollection $orderPositions)
+    public function __construct(User $member, ArrayCollection $orderPositions)
     {
-        $this->member = $member;
+        $this->user = $member;
         $this->orderCreated = new DateTimeImmutable();
         $this->orderPositions = $orderPositions;
     }
@@ -70,14 +70,14 @@ class Order
         return $this;
     }
 
-    public function getMember(): Member
+    public function getUser(): User
     {
-        return $this->member;
+        return $this->user;
     }
 
-    public function setMember(Member $member): Order
+    public function setUser(User $user): Order
     {
-        $this->member = $member;
+        $this->user = $user;
         return $this;
     }
 
