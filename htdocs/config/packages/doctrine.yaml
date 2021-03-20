@@ -13,8 +13,8 @@ doctrine:
             Member:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Member/Entity'
-                prefix: 'App\Member\Entity'
+                dir: '%kernel.project_dir%/src/User/Entity'
+                prefix: 'App\User\Entity'
                 alias: App
             Core:
                 is_bundle: false

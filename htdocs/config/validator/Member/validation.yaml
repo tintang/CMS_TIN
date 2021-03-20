@@ -1,4 +1,4 @@
-App\Member\Model\MemberDto:
+App\User\Model\MemberDto:
   properties:
     firstname:
       - NotBlank: ~

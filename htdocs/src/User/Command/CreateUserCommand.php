@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Member\Command;
+namespace App\User\Command;
 
-use App\Member\Entity\Roles;
-use App\Member\Factory\MemberFactory;
-use App\Member\Model\MemberDto;
+use App\User\Entity\Roles;
+use App\User\Factory\MemberFactory;
+use App\User\Model\MemberDto;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

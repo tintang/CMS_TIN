@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Member\Entity;
+namespace App\User\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 
 /**
  * Class Roles
- * @package App\Member\Entity
+ * @package App\User\Entity
  * @ORM\Entity()
  */
 class Roles

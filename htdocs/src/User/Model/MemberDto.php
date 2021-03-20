@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Member\Model;
+namespace App\User\Model;
 
 class MemberDto
 {

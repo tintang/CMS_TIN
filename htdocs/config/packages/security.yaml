@@ -4,7 +4,7 @@ security:
         users_in_memory: { memory: null }
         api_member_provider:
             entity:
-                class: App\Member\Entity\Member
+                class: App\User\Entity\Member
                 property: email
     firewalls:
         dev:
@@ -40,7 +40,7 @@ security:
 
 
     encoders:
-        App\Member\Entity\Member:
+        App\User\Entity\Member:
             algorithm: auto
 
     # Easy way to control access for large sections of your site
