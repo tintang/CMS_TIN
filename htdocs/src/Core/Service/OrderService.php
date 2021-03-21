@@ -28,7 +28,7 @@ class OrderService
     public function handleOrder(Order $oder)
     {
 
-        $oder->getUser();
+        $oder->getCustomer();
     }
 
 }
