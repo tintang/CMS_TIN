@@ -169,6 +169,16 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/htdocs/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/htdocs/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/reflection" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/ocramius/package-versions" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/orm-pack" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/serializer-pack" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

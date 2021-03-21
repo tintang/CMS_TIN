@@ -3,14 +3,15 @@
 namespace App\Core\Entity;
 
 use App\User\Entity\User;
-use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Order
  * @package App\Core\Entity
  * @ORM\Entity()
+ * @ORM\Table(name="orders")
  */
 class Order
 {
@@ -36,27 +37,36 @@ class Order
     /**
      * @ORM\ManyToOne(targetEntity="App\User\Entity\User")
      */
-    private User $user;
+    private User $customer;
 
     /**
      * @ORM\Column(type="datetime_immutable")
      */
-    private DateTimeImmutable $orderCreated;
-
+    private \DateTimeImmutable $orderCreated;
 
     /**
-     * @var ArrayCollection
+     * @var Collection
      * @ORM\OneToMany(targetEntity="App\Core\Entity\OrderPosition", cascade="remove",mappedBy="order")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
-    private ArrayCollection $orderPositions;
+    private Collection $orderPositions;
 
 
-    public function __construct(User $member, ArrayCollection $orderPositions)
+    public function __construct(User $user, Collection $orderPositions)
     {
-        $this->user = $member;
-        $this->orderCreated = new DateTimeImmutable();
-        $this->orderPositions = $orderPositions;
+        $this->customer = $user;
+        $this->orderCreated = new \DateTimeImmutable();
+        $this->orderPositions = new ArrayCollection();
+        $this->addOrderPositions($orderPositions);
+    }
+
+    public function addOrderPositions(Collection $orderPositions)
+    {
+        /** @var OrderPosition $orderPosition */
+        foreach ($orderPositions as $orderPosition) {
+            $orderPosition->setOrder($this);
+            $this->orderPositions[] = $orderPosition;
+        }
     }
 
     public function getId(): ?int
@@ -70,18 +80,18 @@ class Order
         return $this;
     }
 
-    public function getUser(): User
+    public function getCustomer(): User
     {
-        return $this->user;
+        return $this->customer;
     }
 
-    public function setUser(User $user): Order
+    public function setCustomer(User $customer): Order
     {
-        $this->user = $user;
+        $this->customer = $customer;
         return $this;
     }
 
-    public function getOrderCreated(): DateTimeImmutable
+    public function getOrderCreated():  \DateTimeImmutable
     {
         return $this->orderCreated;
     }

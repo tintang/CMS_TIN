@@ -2,9 +2,9 @@ security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
-        api_member_provider:
+        api_user_provider:
             entity:
-                class: App\User\Entity\Member
+                class: App\User\Entity\User
                 property: email
     firewalls:
         dev:
@@ -14,7 +14,7 @@ security:
         login:
             pattern: ^/api/login
             stateless: true
-            provider: api_member_provider
+            provider: api_user_provider
             anonymous: true
             json_login:
                 check_path: /api/login_check
@@ -23,7 +23,7 @@ security:
         api:
             pattern: ^/api
             stateless: true
-            provider: api_member_provider
+            provider: api_user_provider
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
@@ -40,7 +40,7 @@ security:
 
 
     encoders:
-        App\User\Entity\Member:
+        App\User\Entity\User:
             algorithm: auto
 
     # Easy way to control access for large sections of your site

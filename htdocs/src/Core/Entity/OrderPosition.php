@@ -30,26 +30,32 @@ class OrderPosition
 
     /**
      * @var string
-     * @ORM\Column(type="decimal", precision=2)
+     * @ORM\Column(type="decimal", scale=2)
      */
     private string $currentArticlePrice;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Core\Entity\Order", inversedBy="orderPositions")
+     * @ORM\Column(type="integer")
+     */
+    private int $amount;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Core\Entity\Order", inversedBy="orderPositions", cascade="all")
      */
     private ?Order $order = null;
+
+    private ?Cart $cart = null;
 
     /**
      * OrderPosition constructor.
      * @param Article $article
      * @param string $currentArticlePrice
-     * @param Order|null $order
      */
-    public function __construct(Article $article, string $currentArticlePrice, Order $order = null)
+    public function __construct(Article $article, string $currentArticlePrice, int $amount)
     {
         $this->article = $article;
         $this->currentArticlePrice = $currentArticlePrice;
-        $this->order = $order;
+        $this->amount = $amount;
     }
 
     /**
@@ -89,5 +95,41 @@ class OrderPosition
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return Cart|null
+     */
+    public function getCart(): ?Cart
+    {
+        return $this->cart;
+    }
+
+    /**
+     * @param Cart|null $cart
+     * @return OrderPosition
+     */
+    public function setCart(?Cart $cart): OrderPosition
+    {
+        $this->cart = $cart;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAmount(): int
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param int $amount
+     * @return OrderPosition
+     */
+    public function setAmount(int $amount): OrderPosition
+    {
+        $this->amount = $amount;
+        return $this;
     }
 }

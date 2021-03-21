@@ -170,6 +170,9 @@
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/nette/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/doctrine/data-fixtures" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/doctrine/doctrine-fixtures-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/var" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
