@@ -99,14 +99,27 @@ class StorageArticle
     {
         return $this->amount;
     }
-
-    /**
-     * @param int $amount
-     * @return StorageArticle
-     */
-    public function setAmount(int $amount): StorageArticle
+    
+    public function setAmount(int $amount): self
     {
         $this->amount = $amount;
         return $this;
     }
+
+    public function decreaseAmount(int $amount): self
+    {
+        if ($this->amount - $amount < 0) {
+            throw new \InvalidArgumentException('Not enough in storage to decrease amount');
+        }
+
+        $this->amount -= $amount;
+        return $this;
+    }
+
+    public function increaseAmount($amount): self
+    {
+        $this->amount += $amount;
+        return $this;
+    }
+
 }

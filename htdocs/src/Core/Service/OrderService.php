@@ -1,7 +1,7 @@
 <?php
 
 use App\Core\Entity\Order;
-use App\Core\Mailer\Mailer;
+use App\Core\Mailer\BaseMailer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Security;
 
@@ -10,13 +10,13 @@ class OrderService
 
     private EntityManagerInterface $entityManager;
 
-    private Mailer $mailer;
+    private BaseMailer $mailer;
 
     private Security $security;
 
     public function __construct(
         EntityManagerInterface $entityManager,
-        Mailer $mailer,
+        BaseMailer $mailer,
         Security $security
     )
     {

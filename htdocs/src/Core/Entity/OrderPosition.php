@@ -35,6 +35,11 @@ class OrderPosition
     private string $currentArticlePrice;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private int $amount;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Core\Entity\Order", inversedBy="orderPositions", cascade="all")
      */
     private ?Order $order = null;
@@ -46,10 +51,11 @@ class OrderPosition
      * @param Article $article
      * @param string $currentArticlePrice
      */
-    public function __construct(Article $article, string $currentArticlePrice)
+    public function __construct(Article $article, string $currentArticlePrice, int $amount)
     {
         $this->article = $article;
         $this->currentArticlePrice = $currentArticlePrice;
+        $this->amount = $amount;
     }
 
     /**
@@ -106,6 +112,24 @@ class OrderPosition
     public function setCart(?Cart $cart): OrderPosition
     {
         $this->cart = $cart;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAmount(): int
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param int $amount
+     * @return OrderPosition
+     */
+    public function setAmount(int $amount): OrderPosition
+    {
+        $this->amount = $amount;
         return $this;
     }
 }
