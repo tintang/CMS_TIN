@@ -53,6 +53,7 @@
         "codeception/module-rest": "^1.2",
         "codeception/module-symfony": "^2.0",
         "codeception/module-webdriver": "^1.2",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
