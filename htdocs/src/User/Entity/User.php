@@ -57,6 +57,11 @@ class User implements UserInterface
     private Collection $roles;
 
     /**
+     * @ORM\OneToOne(targetEntity="UserSettings", inversedBy="user")
+     */
+    private ?UserSettings $userSettings = null;
+
+    /**
      * Member constructor.
      */
     public function __construct()
@@ -136,6 +141,17 @@ class User implements UserInterface
     public function setRoles(array $roles): User
     {
         $this->roles = new ArrayCollection($roles);
+        return $this;
+    }
+
+    public function getUserSettings(): ?UserSettings
+    {
+        return $this->userSettings;
+    }
+
+    public function setUserSettings(?UserSettings $userSettings): User
+    {
+        $this->userSettings = $userSettings;
         return $this;
     }
 }
