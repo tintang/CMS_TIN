@@ -9,3 +9,12 @@ resources:
       get: ~
     itemOperations:
       get: ~
+  App\User\Entity\User:
+    collectionOperations:
+      reset_password:
+        input: App\User\ForgetPassword\ForgetPassword
+        path: "forget_password"
+        messenger: "input"
+        method: POST
+        output: false
+    itemOperations: []

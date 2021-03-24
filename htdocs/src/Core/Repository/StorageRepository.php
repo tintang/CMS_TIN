@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Core\Repository;
 
 use App\Core\Entity\Article;
 use App\Core\Entity\Storage;

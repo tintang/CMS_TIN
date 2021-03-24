@@ -22,6 +22,7 @@ class OrderPositionFixtures extends Fixture implements DependentFixtureInterface
         $orderPosition = new OrderPosition(
             $article,
             100,
+            3
         );
 
         $manager->persist($orderPosition);

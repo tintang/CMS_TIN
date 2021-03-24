@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core\Service;
+
 use App\Core\Entity\OrderPosition;
 use App\Core\Entity\Storage;
 use App\Core\Entity\StorageArticle;

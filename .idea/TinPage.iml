@@ -173,6 +173,10 @@
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/doctrine/data-fixtures" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/doctrine/doctrine-fixtures-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/var" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/doctrine-messenger" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/amqp-messenger" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/messenger" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/redis-messenger" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

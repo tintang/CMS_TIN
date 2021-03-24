@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core\Service;
+
 use App\Core\Entity\Order;
 use App\Core\Mailer\BaseMailer;
 use Doctrine\ORM\EntityManagerInterface;
