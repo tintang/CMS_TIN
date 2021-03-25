@@ -17,12 +17,10 @@ resources:
         messenger: "input"
         method: POST
         output: false
-        security: 'is_granted("ROLE_USER")'
       password_reset:
         input: App\User\ForgetPassword\PasswordReset
         path: "reset_password"
         messenger: "input"
         method: POST
         output: false
-        security: 'is_granted("ROLE_USER")'
     itemOperations: []

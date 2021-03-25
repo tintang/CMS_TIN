@@ -6,9 +6,7 @@ namespace api;
 
 use App\Tests\ApiTester;
 use App\User\Entity\ForgetPasswordRequest;
-use App\User\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ResetPasswordCest
 {
@@ -23,7 +21,7 @@ class ResetPasswordCest
 
         $I->amBearerAuthenticated($token);
         $I->haveHttpHeader('Content-Type', 'application/json');
-        $I->sendPost('/api/reset_password_request');
+        $I->sendPost('/api/reset_password_request', ['email'=>'t.tang@test.de']);
         $I->seeResponseCodeIsSuccessful();
 
         $forgetPasswordRequest = $requestRepo->findOneBy([

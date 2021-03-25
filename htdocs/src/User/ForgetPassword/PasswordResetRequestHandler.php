@@ -4,6 +4,7 @@ namespace App\User\ForgetPassword;
 
 use App\Core\Helper\TokenGenerator;
 use App\User\Entity\ForgetPasswordRequest;
+use App\User\Entity\User;
 use App\User\Event\ForgetPassword\ForgetPasswordEvent;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
@@ -36,8 +37,14 @@ class PasswordResetRequestHandler implements MessageHandlerInterface
 
     public function __invoke(PasswordResetRequest $forgetPassword)
     {
+
+        $userRepository = $this->em->getRepository(User::class);
+        $user = $userRepository->findOneBy([
+            'email' => $forgetPassword->getEmail()
+        ]);
+
         $forgetPasswordRequest = new ForgetPasswordRequest(
-            $this->security->getUser(),
+            $user,
             $this->tokenGenerator->generateToken(10)
         );
 
