@@ -48,25 +48,18 @@ class User implements UserInterface
 
     /**
      * @var array
-     * @ORM\ManyToMany(targetEntity="App\User\Entity\Roles")
-     * @ORM\JoinTable(name="user_roles",
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")}
-     * )
+     * @ORM\Column(type="json")
      */
-    private Collection $roles;
+    private array $roles = [];
 
     /**
-     * Member constructor.
+     * @ORM\OneToOne(targetEntity="UserSettings", inversedBy="user")
      */
-    public function __construct()
-    {
-        $this->roles = new ArrayCollection();
-    }
+    private ?UserSettings $userSettings = null;
 
     public function getRoles(): array
     {
-        return $this->roles->toArray();
+        return array_merge($this->roles, ['ROLE_USER']);
     }
 
     public function getPassword()
@@ -136,6 +129,17 @@ class User implements UserInterface
     public function setRoles(array $roles): User
     {
         $this->roles = new ArrayCollection($roles);
+        return $this;
+    }
+
+    public function getUserSettings(): ?UserSettings
+    {
+        return $this->userSettings;
+    }
+
+    public function setUserSettings(?UserSettings $userSettings): User
+    {
+        $this->userSettings = $userSettings;
         return $this;
     }
 }

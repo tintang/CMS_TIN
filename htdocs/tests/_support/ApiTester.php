@@ -33,9 +33,7 @@ class ApiTester extends \Codeception\Actor
      */
     public function getNewUser(string $email, string $firstname, string $lastname, string $password)
     {
-        /** @var EntityManagerInterface $em */
         $em = $this->grabService(EntityManagerInterface::class);
-        /** @var UserPasswordEncoderInterface $passwordEncoder */
         $passwordEncoder = $this->grabService(UserPasswordEncoderInterface::class);
         $memberRepository = $em->getRepository(User::class);
 
