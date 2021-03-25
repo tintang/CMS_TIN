@@ -44,9 +44,9 @@ class ForgetPasswordRequest
     private DateTimeImmutable $created;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable", nullable=true)
      */
-    private DateTimeImmutable $approved;
+    private ?DateTimeImmutable $approved = null;
 
     /**
      * ForgetPasswordRequest constructor.
@@ -125,7 +125,7 @@ class ForgetPasswordRequest
     /**
      * @return DateTimeImmutable
      */
-    public function getApproved(): DateTimeImmutable
+    public function getApproved(): ?DateTimeImmutable
     {
         return $this->approved;
     }
@@ -134,9 +134,9 @@ class ForgetPasswordRequest
      * @param DateTimeImmutable $approved
      * @return ForgetPasswordRequest
      */
-    public function setApproved(DateTimeImmutable $approved): ForgetPasswordRequest
+    public function setApproved(): ForgetPasswordRequest
     {
-        $this->approved = $approved;
+        $this->approved = new \DateTimeImmutable();
         return $this;
     }
 }

@@ -4,28 +4,28 @@
 namespace App\User\Event\ForgetPassword;
 
 
-use App\User\ForgetPassword\ForgetPassword;
+use App\User\ForgetPassword\PasswordResetRequest;
 
 class ForgetPasswordEvent
 {
 
-    private ForgetPassword $forgetPassword;
+    private PasswordResetRequest $forgetPassword;
 
     /**
      * ForgetPasswordEvent constructor.
-     * @param ForgetPassword $forgetPassword
+     * @param PasswordResetRequest $forgetPassword
      */
-    public function __construct(ForgetPassword $forgetPassword)
+    public function __construct(PasswordResetRequest $forgetPassword)
     {
         $this->forgetPassword = $forgetPassword;
     }
 
-    public function getForgetPassword(): ForgetPassword
+    public function getForgetPassword(): PasswordResetRequest
     {
         return $this->forgetPassword;
     }
 
-    public function setForgetPassword(ForgetPassword $forgetPassword): ForgetPasswordEvent
+    public function setForgetPassword(PasswordResetRequest $forgetPassword): ForgetPasswordEvent
     {
         $this->forgetPassword = $forgetPassword;
         return $this;

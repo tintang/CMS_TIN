@@ -13,24 +13,35 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class ResetPasswordCest
 {
 
-
     // tests
     public function testPasswordReset(ApiTester $I)
     {
         $em = $I->grabService(EntityManagerInterface::class);
-        $repo = $em->getRepository(ForgetPasswordRequest::class);
+        $requestRepo = $em->getRepository(ForgetPasswordRequest::class);
         $user = $I->getNewUser('t.tang@test.de', 'Tin', 'Tang', 'test');
         $token = $I->getToken($user->getEmail(), 'test');
 
         $I->amBearerAuthenticated($token);
         $I->haveHttpHeader('Content-Type', 'application/json');
-        $I->sendPost('/api/forget_password');
+        $I->sendPost('/api/reset_password_request');
         $I->seeResponseCodeIsSuccessful();
 
-        $forgetPasswordRequest = $repo->findOneBy([
+        $forgetPasswordRequest = $requestRepo->findOneBy([
             'user' => $user
         ]);
 
         $I->assertNotNull($forgetPasswordRequest);
+
+        $I->sendPost('/api/reset_password', [
+            'token' => $forgetPasswordRequest->getToken(),
+            'newPassword' => 'test123'
+        ]);
+        $I->seeResponseCodeIsSuccessful();
+
+        $I->sendPost('/api/login_check', [
+            'username' => $user->getEmail(),
+            'password' => 'test123'
+        ]);
+        $I->seeResponseCodeIsSuccessful();
     }
 }

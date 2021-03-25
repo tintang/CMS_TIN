@@ -4,7 +4,7 @@
 namespace App\User\ForgetPassword;
 
 
-class ForgetPassword
+class PasswordResetRequest
 {
 
 }

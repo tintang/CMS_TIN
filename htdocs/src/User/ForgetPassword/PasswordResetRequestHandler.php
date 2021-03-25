@@ -6,11 +6,11 @@ use App\Core\Helper\TokenGenerator;
 use App\User\Entity\ForgetPasswordRequest;
 use App\User\Event\ForgetPassword\ForgetPasswordEvent;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Security\Core\Security;
 
-class ForgetPasswordHandler implements MessageHandlerInterface
+class PasswordResetRequestHandler implements MessageHandlerInterface
 {
 
     private Security $security;
@@ -19,22 +19,22 @@ class ForgetPasswordHandler implements MessageHandlerInterface
 
     private EntityManagerInterface $em;
 
-    private MessageBusInterface $messageBus;
+    private EventDispatcherInterface $eventDispatcher;
 
     public function __construct(
         Security $security,
         TokenGenerator $tokenGenerator,
         EntityManagerInterface $entityManagerInterface,
-        MessageBusInterface $messageBus
+        EventDispatcherInterface $eventDispatcher
     )
     {
         $this->security = $security;
         $this->tokenGenerator = $tokenGenerator;
         $this->em = $entityManagerInterface;
-        $this->messageBus = $messageBus;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
-    public function __invoke(ForgetPassword $forgetPassword)
+    public function __invoke(PasswordResetRequest $forgetPassword)
     {
         $forgetPasswordRequest = new ForgetPasswordRequest(
             $this->security->getUser(),
@@ -43,7 +43,7 @@ class ForgetPasswordHandler implements MessageHandlerInterface
 
         $this->em->persist($forgetPasswordRequest);
         $this->em->flush();
-        $this->messageBus->dispatch(new ForgetPasswordEvent($forgetPassword));
+        $this->eventDispatcher->dispatch(new ForgetPasswordEvent($forgetPassword));
     }
 
 }
