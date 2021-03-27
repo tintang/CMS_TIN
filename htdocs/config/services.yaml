@@ -29,5 +29,5 @@ services:
     arguments:
       - !tagged_iterator post_data_persister_handler
 
-  App\User\DataPersister\UserPostDataPersister:
+  App\Core\DataPersister\PostDataPersister:
       decorates: 'api_platform.doctrine.orm.data_persister'

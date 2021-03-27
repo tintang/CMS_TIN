@@ -5,7 +5,7 @@ namespace unit\Member\Factory;
 
 
 use App\User\Entity\User;
-use App\User\Factory\MemberFactory;
+use App\User\Factory\UserFactory;
 use App\User\Model\MemberDto;
 use Codeception\PHPUnit\TestCase;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,7 +28,7 @@ class MemberFactoryTest extends TestCase
             ->setEmail('t-tang@live.de');
 
         $passwordEncoderInterface->expects($this->once())->method('encodePassword')->willReturn('tintang');
-        $memberFactory = new MemberFactory($passwordEncoderInterface, $entityManager);
+        $memberFactory = new UserFactory($passwordEncoderInterface, $entityManager);
         $memberFactory->createMember($memberDto);
     }
 }
