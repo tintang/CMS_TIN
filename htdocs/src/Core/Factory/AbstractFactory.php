@@ -17,10 +17,19 @@ abstract class AbstractFactory
 
     abstract protected function buildObject(array $data);
 
-    public function create(array $data = [])
+    public function create(array $data = [], array $options = [])
     {
+        if ($options['fixture'] ?? false) {
+            $this->configureFixtureData($this->optionsResolver);
+        }
+
         return $this->buildObject($this->optionsResolver->resolve($data));
     }
 
     abstract public function configureOptions(OptionsResolver $resolver);
+
+    protected function configureFixtureData(OptionsResolver $resolver)
+    {
+        throw new \InvalidArgumentException("Fixtures not configured");
+    }
 }
