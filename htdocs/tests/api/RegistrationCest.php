@@ -12,6 +12,7 @@ class RegistrationCest
     public function testRegistration(ApiTester $I)
     {
         $I->haveHttpHeader('Content-Type', 'application/json');
+        $I->haveHttpHeader('Accept-Language', 'de');
         $I->sendPost('api/users', [
             'email' => 'test@test.de',
             'password' => 'test123',

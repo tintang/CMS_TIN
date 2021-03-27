@@ -31,3 +31,5 @@ services:
 
   App\Core\DataPersister\PostDataPersister:
       decorates: 'api_platform.doctrine.orm.data_persister'
+
+  App\User\DataTransformer\UserDtoDataTransformer: ~

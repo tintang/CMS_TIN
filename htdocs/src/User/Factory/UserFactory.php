@@ -30,7 +30,9 @@ class UserFactory extends AbstractFactory
         $address = new Address();
         $userSettings = new UserSettings();
 
-        $userSettings->setLocale($this->requestStack->getCurrentRequest()->getLocale());
+        $userSettings
+            ->setUser($user)
+            ->setLocale($this->requestStack->getCurrentRequest()->getLocale());
 
         $address
             ->setStreet($data['street'])
