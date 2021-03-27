@@ -69,17 +69,4 @@ class UserFactory extends AbstractFactory
         );
     }
 
-    protected function configureFixtureData(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'email' => 'test@test.de',
-            'firstname' => 'tester',
-            'lastname' => 'lastname',
-            'password' => 'password123',
-            'street' => 'teststr',
-            'postalCode' => '12345',
-            'city' => 'Berlin',
-            'country' => 'DE',
-        ]);
-    }
 }
