@@ -3,6 +3,7 @@
 namespace App\User\DataPersister;
 
 use ApiPlatform\Core\DataPersister\ContextAwareDataPersisterInterface;
+use App\Core\DataPersister\PostDataPersisterHandlerRegistry;
 use App\User\Entity\User;
 use App\User\Event\RegistrationEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -12,11 +13,12 @@ final class UserPostDataPersister implements ContextAwareDataPersisterInterface
 
     private ContextAwareDataPersisterInterface $decorated;
     private EventDispatcherInterface $eventDispatcher;
+    private PostDataPersisterHandlerRegistry $registry;
 
-    public function __construct(EventDispatcherInterface $eventDispatcher, ContextAwareDataPersisterInterface $decorated)
+    public function __construct(ContextAwareDataPersisterInterface $decorated, PostDataPersisterHandlerRegistry $registry)
     {
-        $this->eventDispatcher = $eventDispatcher;
         $this->decorated = $decorated;
+        $this->registry = $registry;
     }
 
     public function supports($data, array $context = []): bool
@@ -28,9 +30,7 @@ final class UserPostDataPersister implements ContextAwareDataPersisterInterface
     {
         $result = $this->decorated->persist($data, $context);
 
-        if ($data instanceof User && ($context['collection_operation_name'] ?? '') === 'POST') {
-            $this->eventDispatcher->dispatch(new RegistrationEvent($data));
-        }
+        $this->registry->handlePostPersist($data, $context);
 
         return $result;
     }
