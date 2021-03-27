@@ -11,7 +11,8 @@ resources:
       get: ~
   App\User\Entity\User:
     collectionOperations:
-      post: ~
+      post:
+        input: App\User\Dto\UserDto
       password_reset_request:
         input: App\User\ForgetPassword\PasswordResetRequest
         path: "reset_password_request"

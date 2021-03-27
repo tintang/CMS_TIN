@@ -16,10 +16,16 @@ class RegistrationCest
             'email' => 'test@test.de',
             'password' => 'test123',
             'firstname' => 'test',
-            'lastname' => 'test'
+            'lastname' => 'test',
+            "address" => [
+                "street" => "string",
+                "city" => "string",
+                "postalCode" => "string",
+                "country" => "string"
+            ]
         ]);
 
-        $test = json_decode($I->grabResponse());
+        $TEST = json_decode($I->grabResponse());
         $I->seeResponseCodeIsSuccessful();
     }
 }

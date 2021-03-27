@@ -2,6 +2,7 @@
 
 namespace App\Tests;
 
+use App\User\Entity\Address;
 use App\User\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -42,12 +43,20 @@ class ApiTester extends \Codeception\Actor
             $em->flush();
         }
 
+        $address = new Address();
+        $address
+            ->setPostalCode('12345')
+            ->setStreet('tintang.de')
+            ->setCity('Berlin')
+            ->setCountry('de');
+
         $newUser = new User();
         $newUser
             ->setFirstname($firstname)
             ->setLastname($lastname)
             ->setEmail($email)
-            ->setPassword($passwordEncoder->encodePassword($newUser, $password));
+            ->setPassword($passwordEncoder->encodePassword($newUser, $password))
+            ->setAddress($address);
 
         $em->persist($newUser);
         $em->flush();

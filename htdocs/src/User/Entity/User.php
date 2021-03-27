@@ -57,6 +57,11 @@ class User implements UserInterface
      */
     private ?UserSettings $userSettings = null;
 
+    /**
+     * @ORM\Embedded(class="Address")
+     */
+    private Address $address;
+
     public function getRoles(): array
     {
         return array_merge($this->roles, ['ROLE_USER']);
@@ -140,6 +145,17 @@ class User implements UserInterface
     public function setUserSettings(?UserSettings $userSettings): User
     {
         $this->userSettings = $userSettings;
+        return $this;
+    }
+
+    public function getAddress(): Address
+    {
+        return $this->address;
+    }
+
+    public function setAddress(Address $address): User
+    {
+        $this->address = $address;
         return $this;
     }
 }
