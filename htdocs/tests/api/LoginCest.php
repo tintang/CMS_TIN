@@ -3,7 +3,7 @@
 namespace App\Tests;
 
 use App\User\Entity\User;
-use App\User\Factory\MemberFactory;
+use App\User\Factory\UserFactory;
 use App\User\Model\MemberDto;
 use App\Tests\ApiTester;
 use Doctrine\ORM\EntityManagerInterface;

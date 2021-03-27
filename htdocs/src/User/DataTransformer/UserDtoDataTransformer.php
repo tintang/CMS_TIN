@@ -5,8 +5,8 @@ namespace App\User\DataTransformer;
 use ApiPlatform\Core\DataTransformer\DataTransformerInterface;
 use ApiPlatform\Core\Validator\ValidatorInterface;
 use App\User\Dto\UserDto;
-use App\User\Entity\Address;
 use App\User\Entity\User;
+use App\User\Factory\UserFactory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserDtoDataTransformer implements DataTransformerInterface
@@ -16,10 +16,17 @@ class UserDtoDataTransformer implements DataTransformerInterface
 
     private UserPasswordEncoderInterface $userPasswordEncoder;
 
-    public function __construct(ValidatorInterface $validator, UserPasswordEncoderInterface $userPasswordEncoder)
+    private UserFactory $userFactory;
+
+    public function __construct(
+        ValidatorInterface $validator,
+        UserPasswordEncoderInterface $userPasswordEncoder,
+        UserFactory $userFactory
+    )
     {
         $this->validator = $validator;
         $this->userPasswordEncoder = $userPasswordEncoder;
+        $this->userFactory = $userFactory;
     }
 
     /**
@@ -30,27 +37,17 @@ class UserDtoDataTransformer implements DataTransformerInterface
      */
     public function transform($object, string $to, array $context = []): User
     {
-        $user = new User();
-        $address = new Address();
         $addressDto = $object->getAddress();
-
-
-        $address
-            ->setCity($addressDto->getCity())
-            ->setStreet($addressDto->getStreet())
-            ->setPostalCode($addressDto->getPostalCode())
-            ->setCountry($addressDto->getCountry());
-
-        $user
-            ->setEmail($object->getEmail())
-            ->setFirstname($object->getFirstname())
-            ->setLastname($object->getLastname())
-            ->setPassword(
-                $this->userPasswordEncoder->encodePassword($user, $object->getPassword())
-            )
-            ->setAddress($address);
-
-        return $user;
+        return $this->userFactory->create([
+            'firstname' => $object->getFirstname(),
+            'lastname' => $object->getLastname(),
+            'email' => $object->getEmail(),
+            'password' => $object->getPassword(),
+            'street' => $addressDto->getStreet(),
+            'city' => $addressDto->getCity(),
+            'country' => $addressDto->getCountry(),
+            'postalCode' => $addressDto->getPostalCode()
+        ]);
     }
 
     public function supportsTransformation($data, string $to, array $context = []): bool
@@ -59,6 +56,6 @@ class UserDtoDataTransformer implements DataTransformerInterface
             return false;
         }
 
-        return $data instanceof UserDto && $to === User::class && ($context['input']['class'] ?? null) !== null;
+        return $to === User::class && ($context['input']['class'] ?? null) === UserDto::class;
     }
 }

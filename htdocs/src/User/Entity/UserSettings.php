@@ -29,7 +29,7 @@ class UserSettings
 
     /**
      * @var UserInterface
-     * @ORM\OneToOne(targetEntity="User", mappedBy="userSettings")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="userSettings", cascade="persist")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private UserInterface $user;

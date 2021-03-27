@@ -53,7 +53,7 @@ class User implements UserInterface
     private array $roles = [];
 
     /**
-     * @ORM\OneToOne(targetEntity="UserSettings", inversedBy="user")
+     * @ORM\OneToOne(targetEntity="UserSettings", mappedBy="user", cascade="persist")
      */
     private ?UserSettings $userSettings = null;
 
@@ -144,6 +144,7 @@ class User implements UserInterface
 
     public function setUserSettings(?UserSettings $userSettings): User
     {
+        $userSettings->setUser($this);
         $this->userSettings = $userSettings;
         return $this;
     }
