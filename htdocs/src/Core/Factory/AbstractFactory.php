@@ -19,7 +19,8 @@ abstract class AbstractFactory
 
     public function create(array $data = [])
     {
-        return $this->buildObject($this->optionsResolver->resolve($data));
+        $resolvedData = $this->optionsResolver->resolve($data);
+        return $this->buildObject($resolvedData);
     }
 
     abstract public function configureOptions(OptionsResolver $resolver);

@@ -24,7 +24,7 @@ class UserFactory extends AbstractFactory
         $this->requestStack = $requestStack;
     }
 
-    public function buildObject(array $data = [])
+    protected function buildObject(array $data = [])
     {
         $user = new User();
         $address = new Address();
