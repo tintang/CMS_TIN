@@ -36,6 +36,7 @@ class SetUserAsOwnerEventListener implements EventSubscriberInterface
         $owner = $this->security->getUser();
         if ($ownable instanceof OwnerInterface && $owner) {
             $ownable->setOwner($owner);
+            return;
         }
 
         throw new LogicException('No user logged in');

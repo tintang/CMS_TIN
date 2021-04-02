@@ -28,15 +28,17 @@ class SetPriceEventListener implements EventSubscriberInterface
         $em = $event->getEntityManager();
         $articlePriceRepository = $em->getRepository(ArticlePrice::class);
         $orderPosition = $event->getEntity();
+        $user = $this->security->getUser();
+
         /** @var OrderPosition $orderPosition */
-        if ($orderPosition instanceof OrderPosition) {
+        if ($orderPosition instanceof OrderPosition && $user) {
             /** @var User $user */
-            $user = $this->security->getUser();
             $articlePrice = $articlePriceRepository->findOneBy([
                 'article' => $orderPosition->getArticle(),
                 'countryCode' => $user->getAddress()->getCountry()
             ]);
             $orderPosition->setCurrentArticlePrice($articlePrice->getPrice());
+            return;
         }
 
         throw new LogicException('No user logged in');
