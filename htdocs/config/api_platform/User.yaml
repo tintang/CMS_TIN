@@ -1,14 +1,5 @@
 # api/config/api_platform/resources.yaml
 resources:
-  App\Core\Entity\Article:
-    attributes:
-      input: App\Core\Dto\ArticleInputDto
-      output: App\Core\Dto\ArticleOutputDto
-    collectionOperations:
-      post: ~
-      get: ~
-    itemOperations:
-      get: ~
   App\User\Entity\User:
     collectionOperations:
       post:
@@ -25,10 +16,5 @@ resources:
         messenger: "input"
         method: POST
         output: false
-    itemOperations:
-      get: ~
-  App\Core\Entity\Cart:
-    collectionOperations:
-      post: ~
     itemOperations:
       get: ~
