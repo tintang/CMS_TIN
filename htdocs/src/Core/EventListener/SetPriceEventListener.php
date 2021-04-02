@@ -30,18 +30,19 @@ class SetPriceEventListener implements EventSubscriberInterface
         $orderPosition = $event->getEntity();
         $user = $this->security->getUser();
 
-        /** @var OrderPosition $orderPosition */
-        if ($orderPosition instanceof OrderPosition && $user) {
-            /** @var User $user */
-            $articlePrice = $articlePriceRepository->findOneBy([
-                'article' => $orderPosition->getArticle(),
-                'countryCode' => $user->getAddress()->getCountry()
-            ]);
-            $orderPosition->setCurrentArticlePrice($articlePrice->getPrice());
+        if (!$orderPosition instanceof OrderPosition) {
             return;
         }
 
-        throw new LogicException('No user logged in');
+        if (!$user) {
+            throw new LogicException('No user logged in');
+        }
+
+        $articlePrice = $articlePriceRepository->findOneBy([
+            'article' => $orderPosition->getArticle(),
+            'countryCode' => $user->getAddress()->getCountry()
+        ]);
+        $orderPosition->setCurrentArticlePrice($articlePrice->getPrice());
     }
 
     public function getSubscribedEvents()

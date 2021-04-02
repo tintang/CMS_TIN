@@ -34,12 +34,16 @@ class SetUserAsOwnerEventListener implements EventSubscriberInterface
         /** @var OwnerInterface $ownable */
         $ownable = $lifecycleEventArgs->getObject();
         $owner = $this->security->getUser();
-        if ($ownable instanceof OwnerInterface && $owner) {
-            $ownable->setOwner($owner);
+
+        if (!$ownable instanceof OwnerInterface) {
             return;
         }
 
-        throw new LogicException('No user logged in');
+        if (!$owner) {
+            throw new LogicException('No user logged in');
+        }
+
+        $ownable->setOwner($owner);
     }
 
     public function getSubscribedEvents()
