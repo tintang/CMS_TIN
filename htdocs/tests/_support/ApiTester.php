@@ -2,6 +2,8 @@
 
 namespace App\Tests;
 
+use App\Core\Entity\Article;
+use App\Core\Entity\ArticlePrice;
 use App\User\Entity\Address;
 use App\User\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,6 +27,18 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class ApiTester extends \Codeception\Actor
 {
     use _generated\ApiTesterActions;
+
+    public function createArticle()
+    {
+        $em = $this->grabService(EntityManagerInterface::class);
+        $article = new Article();
+        $article
+            ->addArticlePrice(new ArticlePrice($article, '10.40', 'de'));
+
+        $em->persist($article);
+        $em->flush();
+        return $article;
+    }
 
     /**
      * @param string $email

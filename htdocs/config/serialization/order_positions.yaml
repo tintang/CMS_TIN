@@ -1,0 +1,6 @@
+App\Core\Entity\OrderPosition:
+  attributes:
+    order:
+      ignore: true
+    currentArticlePrice:
+      ignore: true

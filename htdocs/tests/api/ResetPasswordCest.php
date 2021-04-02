@@ -22,7 +22,6 @@ class ResetPasswordCest
         $I->amBearerAuthenticated($token);
         $I->haveHttpHeader('Content-Type', 'application/json');
         $I->sendPost('/api/reset_password_request', ['email' => 't.tang@test.de']);
-        $TEST = $I->grabResponse();
         $I->seeResponseCodeIsSuccessful();
 
         $forgetPasswordRequest = $requestRepo->findOneBy([

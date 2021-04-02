@@ -27,3 +27,8 @@ resources:
         output: false
     itemOperations:
       get: ~
+  App\Core\Entity\Cart:
+    collectionOperations:
+      post: ~
+    itemOperations:
+      get: ~
