@@ -22,14 +22,12 @@ class OrderPosition
     private ?int $id = null;
 
     /**
-     * @var Article
      * @ORM\ManyToOne(targetEntity="App\Core\Entity\Article")
      * @ORM\JoinColumn()
      */
     private Article $article;
 
     /**
-     * @var string
      * @ORM\Column(type="decimal", scale=2)
      */
     private string $currentArticlePrice;
@@ -44,48 +42,32 @@ class OrderPosition
      */
     private ?Order $order = null;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Cart::class, inversedBy="orderPositions", cascade={"persist"})
+     */
     private ?Cart $cart = null;
 
-    /**
-     * OrderPosition constructor.
-     * @param Article $article
-     * @param string $currentArticlePrice
-     */
-    public function __construct(Article $article, string $currentArticlePrice, int $amount)
+    public function __construct(Article $article, int $amount)
     {
         $this->article = $article;
-        $this->currentArticlePrice = $currentArticlePrice;
         $this->amount = $amount;
     }
 
-    /**
-     * @return Article
-     */
     public function getArticle(): Article
     {
         return $this->article;
     }
 
-    /**
-     * @return string
-     */
     public function getCurrentArticlePrice(): string
     {
         return $this->currentArticlePrice;
     }
 
-    /**
-     * @return Order
-     */
     public function getOrder(): Order
     {
         return $this->order;
     }
 
-    /**
-     * @param Order $order
-     * @return OrderPosition
-     */
     public function setOrder(Order $order): OrderPosition
     {
         $this->order = $order;
@@ -97,39 +79,32 @@ class OrderPosition
         return $this->id;
     }
 
-    /**
-     * @return Cart|null
-     */
     public function getCart(): ?Cart
     {
         return $this->cart;
     }
 
-    /**
-     * @param Cart|null $cart
-     * @return OrderPosition
-     */
     public function setCart(?Cart $cart): OrderPosition
     {
         $this->cart = $cart;
+        $cart->addOrderPosition($this);
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getAmount(): int
     {
         return $this->amount;
     }
 
-    /**
-     * @param int $amount
-     * @return OrderPosition
-     */
     public function setAmount(int $amount): OrderPosition
     {
         $this->amount = $amount;
+        return $this;
+    }
+
+    public function setCurrentArticlePrice(string $currentArticlePrice): OrderPosition
+    {
+        $this->currentArticlePrice = $currentArticlePrice;
         return $this;
     }
 }

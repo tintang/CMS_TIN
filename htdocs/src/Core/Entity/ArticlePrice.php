@@ -21,12 +21,6 @@ class ArticlePrice
     private ?int $id = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Core\Entity\Article", cascade="remove")
-     * @ORM\JoinColumn(onDelete="CASCADE")
-     */
-    private Article $article;
-
-    /**
      * @ORM\Column(type="decimal", precision=2)
      */
     private string $price;
@@ -35,6 +29,12 @@ class ArticlePrice
      * @ORM\Column(type="string", length=3)
      */
     private string $countryCode;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="articlePrices", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private Article $article;
 
     /**
      * ArticlePrice constructor.
@@ -53,17 +53,6 @@ class ArticlePrice
         return $this->id;
     }
 
-    public function getArticle(): Article
-    {
-        return $this->article;
-    }
-
-    public function setArticle(Article $article): ArticlePrice
-    {
-        $this->article = $article;
-        return $this;
-    }
-
     public function getPrice(): string
     {
         return $this->price;
@@ -72,6 +61,18 @@ class ArticlePrice
     public function setPrice(string $price): ArticlePrice
     {
         $this->price = $price;
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
+
         return $this;
     }
 }
