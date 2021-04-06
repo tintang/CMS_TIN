@@ -183,6 +183,7 @@
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/amqp-messenger" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/messenger" />
       <path value="$PROJECT_DIR$/htdocs/vendor/symfony/redis-messenger" />
+      <path value="$PROJECT_DIR$/htdocs/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

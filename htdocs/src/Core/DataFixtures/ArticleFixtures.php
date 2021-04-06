@@ -5,9 +5,10 @@ namespace App\Core\DataFixtures;
 use App\Core\Entity\Article;
 use App\Core\Entity\ArticleTranslation;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class ArticleFixtures extends Fixture
+class ArticleFixtures extends Fixture implements DependentFixtureInterface
 {
 
     public const DEFAULT_ARTICLE = 'default__article';
@@ -23,6 +24,7 @@ class ArticleFixtures extends Fixture
         $manager->flush();
     }
 
+    /** @noinspection PhpParamsInspection */
     public function getArticles(int $count): array
     {
         $articles = [];
@@ -30,13 +32,19 @@ class ArticleFixtures extends Fixture
             $article = new Article();
             /** @var ArticleTranslation $translation */
             $translation = $article->translate('de');
+            $article->setCompany($this->getReference(CompanyFixtures::class));
             $translation
-                ->setName('Test Article')
+                ->setName('Test Article ' . $i)
                 ->setDescription('Das ist ein Article');
             $article->mergeNewTranslations();
             $articles[] = $article;
         }
 
         return $articles;
+    }
+
+    public function getDependencies()
+    {
+        return [CompanyFixtures::class];
     }
 }

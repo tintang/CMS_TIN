@@ -28,6 +28,8 @@ class ArticleDtoOutputDataTransformer implements DataTransformerInterface
     {
         $article = new ArticleOutputDto();
         $article->setTranslations($object->getTranslations()->toArray());
+        $article->setCompanyName($object->getCompany()->getName());
+        $article->setId($object->getId());
         return $article;
     }
 

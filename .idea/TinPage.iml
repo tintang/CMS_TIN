@@ -177,6 +177,7 @@
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/amqp-messenger" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/messenger" />
       <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/redis-messenger" />
+      <excludeFolder url="file://$MODULE_DIR$/htdocs/vendor/symfony/webpack-encore-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

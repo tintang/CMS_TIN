@@ -2,6 +2,7 @@
 
 namespace App\User\DataFixtures;
 
+use App\User\Entity\Address;
 use App\User\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -25,11 +26,19 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $user = new User();
+        $address = new Address();
+        $address
+            ->setPostalCode('10709')
+            ->setCity('Berlin')
+            ->setStreet('tintang')
+            ->setCountry('de');
+
         $user
             ->setEmail('t-tang@live.de')
             ->setPassword($this->userPasswordEncoder->encodePassword($user, 'password'))
             ->setFirstname('Tin')
-            ->setLastname('Tang');
+            ->setLastname('Tang')
+            ->setAddress($address);
 
         $manager->persist($user);
         $manager->flush();

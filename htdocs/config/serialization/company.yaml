@@ -1,0 +1,4 @@
+App\Core\Entity\Company:
+  attributes:
+    articles:
+      ignore: true

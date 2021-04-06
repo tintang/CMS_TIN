@@ -10,11 +10,11 @@ class IndexController extends AbstractController
 {
 
     /**
-     * @Route("/",name="index")
+     * @Route("/{page}",name="index", requirements={"page": "^$|^(?!api).+"}))
      * @return Response
      */
     public function indexAction()
     {
-        return new Response("Hallo");
+        return $this->render('base.html.twig');
     }
 }

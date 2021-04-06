@@ -31,6 +31,11 @@ class Article implements TranslatableInterface
      */
     private Collection $articlePrices;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Company", inversedBy="articles")
+     */
+    private ?Company $company;
+
     public function __construct()
     {
         $this->articlePrices = new ArrayCollection();
@@ -73,4 +78,20 @@ class Article implements TranslatableInterface
 
         return $this;
     }
+
+    public function setCompany(Company $company): Article
+    {
+        $this->company = $company;
+        $this->company->addArticle($this);
+        return $this;
+    }
+
+    /**
+     * @return Company|null
+     */
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
 }
+

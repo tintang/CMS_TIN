@@ -1,0 +1,25 @@
+
+body {
+    font-family: Helvetica, serif;
+}
+
+.article__text {
+    line-height: 140%;
+}
+
+.article__header {
+    font-weight: 600;
+}
+
+.article__link {
+    color: #4a4a4a;
+}
+
+.article__link:hover {
+    color: #4a4a4a;
+}
+
+.text--description {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+}

@@ -48,7 +48,7 @@ services:
     depends_on:
       - www.cms.priv
   encore:
-    image: node:10-alpine
+    image: node:14-alpine
     volumes:
       - ./htdocs:/var/www/html
     ports:
